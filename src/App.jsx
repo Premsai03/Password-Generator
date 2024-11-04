@@ -1,15 +1,13 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 
-
-
 function App() {
-  const [length, setLength] = useState(8)
+  const [length, setLength] = useState(6)
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState("")
 
   //useRef hook
-const passwordRef = useRef(null)
+  const passwordRef = useRef(null)
 
   const passwordGenerator = useCallback(() => {
     let pass = ""
@@ -42,14 +40,14 @@ const passwordRef = useRef(null)
           <input  
               type="text"
               value={password}
-              className='outline-none text-black w-full py-1 px-3'
+              className='outline-none text-gray-700 w-full py-1 px-3'
               placeholder='password'
               readOnly
               ref={passwordRef}
           />
           <button
           onClick={copyPasswordToClipboard}
-          className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
+          className='outline-none bg-blue-500 text-white px-3 py-0.5 shrink-0'
           >copy</button>
         
         </div>
@@ -58,7 +56,7 @@ const passwordRef = useRef(null)
             <input 
               type="range"
               min={6}
-              max={100}
+              max={30}
               className='cursor-pointer w-48'
               onChange={(e) =>{setLength(e.target.value)}}
             />
